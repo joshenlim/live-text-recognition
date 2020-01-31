@@ -26,7 +26,7 @@ Program was built and tested on Python 3.6.5, MacOS
 
 ## Possible Errors
 
-PyTorch - ImportError: Library not loaded: @rpath/libc++.1.dylib
+- PyTorch - ImportError: Library not loaded: @rpath/libc++.1.dylib
 
 Run the following command but change the path after `/usr/lib` to where the `_C.so` file of the torch library is located on your local machine, in this context I have it in a virtual env:
 
