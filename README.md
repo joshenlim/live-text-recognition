@@ -12,11 +12,11 @@ The CRNN model was trained over the [MJSynth Dataset](https://www.robots.ox.ac.u
 
 Ensure that you have both a trained EAST detection model and a trained CRNN model available. Placed them within the `east_text_detector` and `crnn_text_recognizer` folders respectively. Be sure to update the paths to the model in `main.py`.  
 
-Virtual environment can be set up via pipenv:
+Virtual environment can be set up via pipenv, add a `--skip--lock` flag to the install command if locking takes too long:
 
 ```
 pipenv shell
-pipenv install (Add a `--skip--lock` flag if locking takes too long)
+pipenv install
 ```
 
 Run the program with the following command, remove the `--live` flag if intend to run program for demo images:
