@@ -1,0 +1,5 @@
+.vscode
+.DS_Store
+
+east_text_detector/frozen_east_text_detection.pb
+crnn_text_recognizer/crnn_text_recognizer.pth
