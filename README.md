@@ -1,4 +1,4 @@
-# fyp-text-detect-demo
+# fyp-text-recognition-demo
 
 A demonstration of text detection and recognition employed in a pipeline for scene text recognition, built as part of my Final Year Project at Nanyang Technological University. Currently able to either run text recognition through a live camera feed or through a sequential list of demo images.
 
@@ -6,15 +6,18 @@ Text detection is currently done through a pre-trained EAST detection model that
 
 Text recognition, which was the project focus, is done through a self-trained CRNN model, through which its implementation in PyTorch is available [here](https://github.com/meijieru/crnn.pytorch). (Pre-trained model will be made available)
 
+The CRNN model was trained over the [MJSynth Dataset](https://www.robots.ox.ac.uk/~vgg/data/text/) with an accuracy of 86.0% against the ICDAR13 test dataset. Do note that the ICDAR13 test dataset was filtered according to constraints mentioned [here](https://github.com/meijieru/crnn.pytorch/issues/5) when used to measure the model's accuracy.
+
 ## Set up
 
-Ensure that you have both a trained EAST detection model and a trained CRNN model and placed them within the `east_text_detector` and `crnn_text_recognizer` folders respectively. Be sure to update the paths to the model in `main.py`.  
+Ensure that you have both a trained EAST detection model and a trained CRNN model available. Placed them within the `east_text_detector` and `crnn_text_recognizer` folders respectively. Be sure to update the paths to the model in `main.py`.  
 
 Virtual environment can be set up via pipenv:
 
-`pipenv shell`
-
-`pipenv install` (Add a `--skip--lock` flag if locking takes too long)
+```
+pipenv shell
+pipenv install` (Add a `--skip--lock` flag if locking takes too long)
+```
 
 Run the program with the following command, remove the `--live` flag if intend to run program for demo images:
 
