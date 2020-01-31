@@ -16,7 +16,7 @@ Virtual environment can be set up via pipenv:
 
 ```
 pipenv shell
-pipenv install` (Add a `--skip--lock` flag if locking takes too long)
+pipenv install (Add a `--skip--lock` flag if locking takes too long)
 ```
 
 Run the program with the following command, remove the `--live` flag if intend to run program for demo images:
