@@ -6,7 +6,7 @@ Text detection is currently done through a pre-trained EAST detection model that
 
 Text recognition, which was the project focus, is done through a self-trained CRNN model, through which its implementation in PyTorch is available [here](https://github.com/meijieru/crnn.pytorch). (Pre-trained model will be made available)
 
-The CRNN model was trained over the [MJSynth Dataset](https://www.robots.ox.ac.uk/~vgg/data/text/) and its performance against benchmark datasets along with their comparisons against what was reported in the paper are as tabulated below. Do note that the ICDAR13 test dataset was filtered according to constraints mentioned [here](https://github.com/meijieru/crnn.pytorch/issues/5) when used to measure the model's accuracy.
+The CRNN model was trained over the [MJSynth Dataset](https://www.robots.ox.ac.uk/~vgg/data/text/) and fine-tuned with the COCO-Text dataset. Its performance against benchmark datasets along with their comparisons against what was reported in the paper are as tabulated below. Do note that the ICDAR13 test dataset was filtered according to constraints mentioned [here](https://github.com/meijieru/crnn.pytorch/issues/5) when used to measure the model's accuracy.
 
 | Dataset | Accuracy | Reported Accuracy |
 |--|--|--|
