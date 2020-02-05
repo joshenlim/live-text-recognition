@@ -14,7 +14,7 @@ parser.add_argument('--live', action='store_true', help='Runs program through a 
 parser.add_argument('--viewWidth', type=int, default=640, help='Width of camera frame')
 
 east_model_path = './east_text_detector/frozen_east_text_detection.pb'
-crnn_model_path = './crnn_text_recognizer/crnn_text_recognizer.pth'
+crnn_model_path = './crnn_text_recognizer/crnn_text_recognizer_finetuned.pth'
 demo_image_path = './assets'
 white_list = ['.DS_Store']
 
