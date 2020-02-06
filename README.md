@@ -1,6 +1,6 @@
 # fyp-text-recognition-demo
 
-A demonstration of text detection and recognition employed in a pipeline for scene text recognition, built as part of my Final Year Project at Nanyang Technological University. Currently able to either run text recognition through a live camera feed or through a sequential list of demo images.
+A demonstration of text detection and recognition employed in a pipeline for scene text recognition, built as part of my Final Year Project at Nanyang Technological University. Currently able to either run text recognition through a live camera feed at an average of 20 FPS or through a sequential list of demo images.
 
 Text detection is currently done through a pre-trained EAST detection model that's available [here](https://www.dropbox.com/s/r2ingd0l3zt8hxs/frozen_east_text_detection.tar.gz?dl=1).
 

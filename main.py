@@ -19,11 +19,14 @@ demo_image_path = './assets'
 white_list = ['.DS_Store']
 
 log = Logger()
+args = parser.parse_args()
+text_detector = EASTDetector(east_model_path)
+text_recognizer = CRNNRecognizer(crnn_model_path)
 
 def compute_frame(frame):
+    start = datetime.now()
     boxes, confidences, indices, width_ratio, height_ratio = text_detector.detect(frame)
 
-    start = datetime.now()
     for i in indices:
         vertices = cv2.boxPoints(boxes[i[0]])
         for j in range(4):
@@ -46,16 +49,10 @@ def compute_frame(frame):
         
         cv2.putText(frame, predicted_text, (vertices[1][0], vertices[1][1]), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 1, cv2.LINE_AA)
 
-    # log.info(f'Recognition Time: {(datetime.now() - start).total_seconds() * 100:.2f} ms')      
-    # cv2.putText(frame, "{:.3f}".format(confidences[i[0]]), (vertices[0][0], vertices[0][1]), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 1, cv2.LINE_AA)
-
+    # log.info(f'Recognition Time: {(datetime.now() - start).total_seconds() * 100:.2f} ms')
     return frame
     
 if __name__ == "__main__":
-    args = parser.parse_args()
-    text_detector = EASTDetector(east_model_path)
-    text_recognizer = CRNNRecognizer(crnn_model_path)
-
     # Run the program through a live camera feed
     if args.live:
         log.info('Initializing Camera Feed')
