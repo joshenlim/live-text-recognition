@@ -7,8 +7,8 @@ name = "pypi"
 python_version = "3.6.5"
 
 [packages]
-numpy = "*"
-opencv-python = "*"
-torch = "*"
-torchvision = "*"
-imutils = "*"
+numpy = "==1.18.1"
+torch = "==1.4.0"
+torchvision = "==0.5.0"
+imutils = "==0.5.3"
+opencv-python = "==4.1.2.30"
