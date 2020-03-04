@@ -40,13 +40,17 @@ pipenv shell
 pipenv install
 ```
 
-Run the program with the following command, remove the `--live` flag if intend to run program for demo images:
+Run the program with the following command for live text recognition:
 
 `python -m main --viewWidth 720 --live`
 
-Demo images are 10 randomly sampled images from the Street View Text Dataset [here](http://vision.ucsd.edu/~kai/svt/) 
+To run the recognition with static images, remove the `--live` flag, `--sentence` flag is optional to display detected texts in the order meant to be read from the image:
 
-Program was built and tested on Python 3.6.5, MacOS
+`python -m main --viewWidth 720 --sentence`
+
+Demo images are 10 randomly sampled images from the Street View Text Dataset [here](http://vision.ucsd.edu/~kai/svt/) .
+
+Program was built and tested on Python 3.6.5, MacOS.
 
 ## Possible Errors
 
