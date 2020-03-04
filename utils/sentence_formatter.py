@@ -1,11 +1,11 @@
 # y threshold determines if the words are in the same line
 # Am thinking that the threshold value probably has to be adaptive
 # Cause will have to consider different image sizes
-# But 20 seems to be the most generic and stable so far
-y_threshold = 20
+# But 30 seems to be the most generic and stable so far
+y_threshold = 30
 
 # x threshold determines if the words are in the same group
-x_threshold = 50
+x_threshold = 60
 
 def find_y_intercept(p1, p2):
     # Derive a y = mx + c, based on 2 points
@@ -15,7 +15,7 @@ def find_y_intercept(p1, p2):
 
     p1 = [p1[0], -p1[1]]
     p2 = [p2[0], -p2[1]]
-    m = (p2[1] - p1[1]) / (p2[0] - p1[1])
+    m = (p2[1] - p1[1]) / (p2[0] - p1[0])
 
     return p1[1] - (m * p1[0])
 
@@ -71,7 +71,9 @@ def sentence_formatter_v1(words, debug=False):
     # Now is just treating it as a new row
     for key in list(word_groups):
         for idx, word in enumerate(word_groups[key]):
-            if (idx != len(word_groups[key]) - 1 and abs(word['x_value_right'] - word_groups[key][idx + 1]['x_value_left']) > x_threshold):
+            if (idx != len(word_groups[key]) - 1 and
+                word['x_value_right'] < word_groups[key][idx + 1]['x_value_left'] and
+                abs(word['x_value_right'] - word_groups[key][idx + 1]['x_value_left']) > x_threshold):
                 print('different cluster')
                 word_groups[f'row_{row_num}'] = [word]
                 row_num += 1

@@ -8,6 +8,7 @@ from east_text_detector.detector import EASTDetector
 from crnn_text_recognizer.recognizer import CRNNRecognizer
 from utils.logger import Logger
 from utils.cv2_helper import display_image
+from utils.cv2_helper import angular_correction
 from utils.sentence_formatter import format_sentence
 
 parser = argparse.ArgumentParser()
@@ -52,22 +53,30 @@ def compute_frame(frame, show_sentence=False, debug=False):
         if top_left[0] < 0 or top_left[1] < 0:
             continue
 
-        text_roi = frame[int(top_left[1]):int(btm_right[1]), int(top_left[0]):int(btm_right[0])]
+        # Use line 57 to fall back before angular correction
+        # text_roi = frame[int(top_left[1]):int(btm_right[1]), int(top_left[0]):int(btm_right[0])]
 
-        index_map[key] = {
-          'vertices': vertices,
-          'pred_text': text_recognizer.predict(text_roi),
-        }
+        text_roi = angular_correction(key, frame, vertices)
+
+        if text_roi.shape[0] > 0 and text_roi.shape[1] > 0:
+            # cv2.imshow(f't_{key}', text_roi)
+            index_map[key] = {
+              'vertices': vertices,
+              'pred_text': text_recognizer.predict(text_roi),
+            }
 
     if len(index_map.keys()):
-        for i in indices:
-            key = i[0]
-            for j in range(4):
-                p1 = (index_map[key]['vertices'][j][0], index_map[key]['vertices'][j][1])
-                p2 = (index_map[key]['vertices'][(j + 1) % 4][0], index_map[key]['vertices'][(j + 1) % 4][1])
-                cv2.line(frame, p1, p2, (255, 170, 0), 2, cv2.LINE_AA)
-            
-            cv2.putText(frame, index_map[key]['pred_text'], (index_map[key]['vertices'][1][0], index_map[key]['vertices'][1][1]), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 1, cv2.LINE_AA)
+        try:
+            for i in indices:
+                key = i[0]
+                for j in range(4):
+                    p1 = (index_map[key]['vertices'][j][0], index_map[key]['vertices'][j][1])
+                    p2 = (index_map[key]['vertices'][(j + 1) % 4][0], index_map[key]['vertices'][(j + 1) % 4][1])
+                    cv2.line(frame, p1, p2, (255, 170, 0), 2, cv2.LINE_AA)
+                
+                cv2.putText(frame, index_map[key]['pred_text'], (index_map[key]['vertices'][1][0], index_map[key]['vertices'][1][1]), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 1, cv2.LINE_AA)
+        except:
+            pass
 
     # log.info(f'Recognition Time: {(datetime.now() - start).total_seconds() * 100:.2f} ms')
 
@@ -100,9 +109,9 @@ if __name__ == "__main__":
         log.info('Running computation for demo images')
         for file_name in os.listdir(demo_image_path):
 
-            # Comment out the lines 103-104 if you want to run for all demo images
-            if file_name != "demo_2.jpg":
-                continue
+            # Comment out the lines 113-114 if you want to run for all demo images
+            # if file_name != "demo_5.jpg":
+            #     continue
 
             if file_name in white_list:
                 continue
