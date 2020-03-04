@@ -48,7 +48,9 @@ To run the recognition with static images, remove the `--live` flag, `--sentence
 
 `python -m main --viewWidth 720 --sentence`
 
-Demo images are 10 randomly sampled images from the Street View Text Dataset [here](http://vision.ucsd.edu/~kai/svt/) .
+Demo images are 10 randomly sampled images from the Street View Text Dataset [here](http://vision.ucsd.edu/~kai/svt/).
+
+There's also an optional `--angleCorrection` flag for both live and static scenarios, which rotates texts that are detected to be angled, transforming them to be horizontal. This should help with the recognition model's accuracy, but there is yet any clearly evidence that this feature helps significantly, hence made toggle-able.
 
 Program was built and tested on Python 3.6.5, MacOS.
 
