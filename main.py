@@ -60,7 +60,7 @@ def compute_frame(frame, show_sentence=False, correct_angle=False, debug=False):
             text_roi = frame[int(top_left[1]):int(btm_right[1]), int(top_left[0]):int(btm_right[0])]
 
         if text_roi.shape[0] > 0 and text_roi.shape[1] > 0:
-            cv2.imshow(f't_{key}', text_roi)
+            # cv2.imshow(f't_{key}', text_roi)
             index_map[key] = {
               'vertices': vertices,
               'pred_text': text_recognizer.predict(text_roi),
@@ -111,7 +111,7 @@ if __name__ == "__main__":
         for file_name in os.listdir(demo_image_path):
 
             # Comment out the lines 113-114 if you want to run for all demo images
-            # if file_name != "demo_5.jpg":
+            # if file_name != "demo_4.jpg":
             #     continue
 
             if file_name in white_list:
