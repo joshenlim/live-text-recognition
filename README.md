@@ -15,15 +15,15 @@ The CRNN model was trained over the [MJSynth Dataset](https://www.robots.ox.ac.u
 
 ## Screenshots
 
-<img src="https://raw.githubusercontent.com/joshenlim/live-text-recognition/master/screenshots/ss_1.png" width="200px" style="display: block; margin: 0 auto"/>
+<img src="https://raw.githubusercontent.com/joshenlim/live-text-recognition/master/screenshots/ss_1.png" width="500px" style="display: block; margin: 0 auto"/>
 
 https://raw.githubusercontent.com/joshenlim/live-text-recognition/master/assets/demo.png
 
 The program is also able to arrange and display the detected texts in the order which its meant to be read from the image as such. If the image contained multiple contexts of texts, the program is able to segregate them accordingly as well and not treat all of the words in the image as a single paragraph.
 
-<img src="https://raw.githubusercontent.com/joshenlim/live-text-recognition/master/screenshots/ss_2.png" width="200px" style="display: block; margin: 0 auto"/>
+<img src="https://raw.githubusercontent.com/joshenlim/live-text-recognition/master/screenshots/ss_2.png" width="500px" style="display: block; margin: 0 auto"/>
 
-<img src="https://raw.githubusercontent.com/joshenlim/live-text-recognition/master/screenshots/ss_3.png" width="200px" style="display: block; margin: 0 auto"/>
+<img src="https://raw.githubusercontent.com/joshenlim/live-text-recognition/master/screenshots/ss_3.png" width="500px" style="display: block; margin: 0 auto"/>
 
 ## Set up
 
