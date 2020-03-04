@@ -1,4 +1,4 @@
-# fyp-text-recognition-demo
+# Live Scene Text Recognition
 
 A demonstration of text detection and recognition employed in a pipeline for scene text recognition, built as part of my Final Year Project at Nanyang Technological University. Currently able to either run text recognition through a live camera feed at an average of 20 FPS or through a sequential list of demo images.
 
@@ -12,6 +12,10 @@ The CRNN model was trained over the [MJSynth Dataset](https://www.robots.ox.ac.u
 |--|--|--|
 | ICDAR13 | 86.46% | 86.70% |
 | IIIT 5k-words | 78.30% | 78.20% |
+
+## Screenshots
+
+The program is also able to arrange and display the detected texts in the order which its meant to be read from the image as such. If the image contained multiple contexts of texts, the program is able to segregate them accordingly as well and not treat all of the words in the image as a single paragraph.
 
 ## Set up
 
