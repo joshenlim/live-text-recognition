@@ -10,8 +10,8 @@ The CRNN model was trained over the [MJSynth Dataset](https://www.robots.ox.ac.u
 
 | Dataset | Accuracy | Reported Accuracy |
 |--|--|--|
-| ICDAR13 | 86.46% | 86.70% |
-| IIIT 5k-words | 78.30% | 78.20% |
+| ICDAR13 | 87.75% | 86.70% |
+| IIIT 5k-words | 78.10% | 78.20% |
 
 ## Screenshots
 
