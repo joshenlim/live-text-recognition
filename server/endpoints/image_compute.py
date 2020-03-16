@@ -11,8 +11,10 @@ parser = reqparse.RequestParser()
 
 '''
 body = {
-  image: base64encoded-image
+  image: base64 encoded-image
 }
+
+Returns a base64 encoded-image
 '''
 
 class ImageCompute(Resource):

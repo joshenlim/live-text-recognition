@@ -54,6 +54,14 @@ There's also an optional `--angleCorrection` flag for both live and static scena
 
 Program was built and tested on Python 3.6.5, MacOS.
 
+## API Server
+
+Currently still midway through development and testing but I was thinking about making this service accessible to other applications such as on web or mobile, hence the decision to have the text recognition sit behind an API layer.
+
+To start the server run the following command:
+
+`python -m server.main`
+
 ## Possible Errors
 
 - PyTorch - ImportError: Library not loaded: @rpath/libc++.1.dylib

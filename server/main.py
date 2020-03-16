@@ -32,8 +32,7 @@ def index():
           'image': img_b64
         })
 
-        computed_img = base64.b64decode(res.json()['image'])
-        computed_img_b64 = base64.b64encode(computed_img).decode('ascii')
+        computed_img_b64 = res.json()['image']
 
         return render_template('home.html', image=f'data:image/png;base64,{computed_img_b64}')
     else:
