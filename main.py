@@ -96,7 +96,7 @@ if __name__ == "__main__":
             ret, frame = cap.read()
             frame = imutils.resize(frame, width=args.viewWidth)
 
-            detected_frame = compute_frame(frame, angular_correction=args.angleCorrection)
+            detected_frame = compute_frame(frame, correct_angle=args.angleCorrection)
 
             cv2.imshow('frame', detected_frame)
             if cv2.waitKey(1) & 0xFF == ord('q'):
