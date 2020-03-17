@@ -1,14 +1,36 @@
 <!doctype html>
 <title>FYP Text Recognition Demo</title>
-<h1>FYP Text Recognition Demo Server</h1>
-<p>Upload an image</p>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap">
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
 
-<form method="post" action="/" enctype="multipart/form-data">
-  Select image to upload:
-  <input type="file" name="image" id="image">
-  <input type="submit" value="Upload Image" name="submit">
-</form>
+<h1 class="title">Scene Text Recognition Demo Server</h1>
 
-{% if image %}
-  <img src={{image}} width=500/>
-{% endif %}
+<div class="buttons">
+  <a href="/?mode=static" class="button-1 {{'active' if static }}">Static</a>
+  <a href="/?mode=live" class="button-2 {{'active' if live }}" >Live Feed</a>
+</div>
+
+<div class="container">
+  {% if static %}
+    <p class="help-text">Upload an image to run the text detection and recognition computation</p>
+    <form class="upload-form" method="post" action="/" enctype="multipart/form-data">
+      Select image to upload:
+      <input type="file" name="image" id="image">
+      <input type="submit" value="Upload Image" name="submit">
+    </form>
+
+    {% if image %}
+      <img src={{image}} width=500/>
+    {% endif %}
+  {% endif %}
+
+  {% if live %}
+    <img class="video-stream" src="{{ url_for('video_feed') }}">
+  {% endif %}
+
+</div>

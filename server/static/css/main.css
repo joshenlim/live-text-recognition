@@ -1,0 +1,70 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+.title {
+  text-align: center;
+  margin: 50px 0px;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.buttons > .button-1 {
+  border: 1px solid rgba(0,0,0,0.4);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  text-align: center;
+  width: 150px;
+  padding: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000000;
+}
+
+.buttons > .button-2 {
+  border: 1px solid rgba(0,0,0,0.4);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-left: none;
+  text-align: center;
+  width: 150px;
+  padding: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000000;
+}
+
+.buttons > .active {
+  background-color: rgba(0,0,0,0.1);
+  cursor: default;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.help-text {
+  font-weight: 300;
+  margin-top: 0px;
+  margin-bottom: 40px;
+}
+
+.upload-form {
+  margin-bottom: 20px;
+}
+
+.video-stream{
+  width: 600px;
+}
