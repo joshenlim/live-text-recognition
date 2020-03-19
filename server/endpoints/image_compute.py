@@ -1,4 +1,5 @@
 from flask import request, render_template
+from flask_cors import cross_origin
 from flask_restful import Resource, Api, reqparse
 from PIL import Image
 from io import BytesIO
@@ -22,6 +23,7 @@ class ImageCompute(Resource):
         self.detector = detector
         self.recognizer = recognizer
 
+    @cross_origin()
     def post(self):
         parser.add_argument('image')
         args = parser.parse_args()
