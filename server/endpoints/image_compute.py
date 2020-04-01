@@ -7,6 +7,7 @@ import base64
 import numpy as np
 import cv2
 from utils.cv2_helper import angular_correction
+from utils.sentence_formatter import format_sentence
 
 parser = reqparse.RequestParser()
 
@@ -26,8 +27,12 @@ class ImageCompute(Resource):
     @cross_origin()
     def post(self):
         parser.add_argument('image')
+        parser.add_argument('show_sentence')
+
         args = parser.parse_args()
         img_b64 = args['image']
+        show_sentence = args['show_sentence']
+
         image = Image.open(BytesIO(base64.b64decode(img_b64))).convert('RGB')
         image_cv = cv2.cvtColor(np.asarray(image), cv2.COLOR_RGB2BGR)
 
@@ -70,6 +75,12 @@ class ImageCompute(Resource):
 
         img_str = base64.b64encode(cv2.imencode('.jpg', image_cv)[1]).decode()
 
+        if show_sentence:
+            sentences = format_sentence(index_map)
+        else:
+            sentences = []
+
         return {
-          'image': img_str
+          'image': img_str,
+          'sentences': sentences
         }

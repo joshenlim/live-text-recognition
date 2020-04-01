@@ -29,7 +29,7 @@ crnn_text_recognizer_best_finetuned   86.11  / 80.00
 east_model_path = './east_text_detector/frozen_east_text_detection.pb'
 crnn_model_path = './crnn_text_recognizer/crnn_text_recognizer_best.pth'
 demo_image_path = './assets'
-white_list = ['.DS_Store']
+white_list = ['.DS_Store', 'Collated']
 
 log = Logger()
 args = parser.parse_args()
@@ -82,7 +82,7 @@ def compute_frame(frame, show_sentence=False, correct_angle=False, debug=False):
     # log.info(f'Recognition Time: {(datetime.now() - start).total_seconds() * 100:.2f} ms')
 
     if show_sentence:
-        format_sentence(index_map, debug)
+        format_sentence(index_map, debug, pretty_print=True)
 
     return frame
     

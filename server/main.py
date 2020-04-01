@@ -19,7 +19,7 @@ white_list = ['.DS_Store']
 text_detector = EASTDetector(east_model_path)
 text_recognizer = CRNNRecognizer(crnn_model_path)
 
-video_stream = VideoCamera()
+# video_stream = VideoCamera()
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -62,8 +62,9 @@ def index():
 
 @app.route('/video_feed')
 def video_feed():
-    return Response(gen(video_stream), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return None
+    # return Response(gen(video_stream), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
     # app.run()

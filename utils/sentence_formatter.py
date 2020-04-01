@@ -95,7 +95,7 @@ def sentence_prettifier_v1(words):
         print(f'| {idx} | {word:30} |')
     print('======================================')
 
-def format_sentence(words, debug=False):
+def format_sentence(words, debug=False, pretty_print=False):
     formatted_words = list(map(format_word, words.items()))
     res = sentence_formatter_v1(formatted_words, debug)
 
@@ -103,4 +103,7 @@ def format_sentence(words, debug=False):
         print(formatted_words)
         print(res)
 
-    sentence_prettifier_v1(res)
+    if pretty_print:
+        sentence_prettifier_v1(res)
+
+    return res
