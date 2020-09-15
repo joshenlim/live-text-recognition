@@ -13,6 +13,8 @@ The CRNN model was trained over the [MJSynth Dataset](https://www.robots.ox.ac.u
 | ICDAR13 | 87.75% | 86.70% |
 | IIIT 5k-words | 78.10% | 78.20% |
 
+Due to the changes in grading in response to the COVID19 situation, the presentation was conducted via a [video recording](https://www.youtube.com/watch?v=f-jQWvPQskQ) which summarizes the project journey and findings
+
 ## Screenshots
 
 <p align="center">
